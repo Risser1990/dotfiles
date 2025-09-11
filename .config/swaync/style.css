@@ -1,0 +1,235 @@
+/* Global Monokai Colors */
+* {
+  font-family: "JetBrainsMono Nerd Font Propo";
+  font-weight: normal;
+  font-size: 12px;
+}
+
+/* Monokai Color Palette */
+@define-color background #272822;
+@define-color foreground #f8f8f2;
+@define-color selection #49483e;
+@define-color comment #75715e;
+@define-color red #f92672;
+@define-color orange #fd971f;
+@define-color yellow #f4bf75;
+@define-color green #a6e22e;
+@define-color cyan #66d9ef;
+@define-color blue #66d9ef;
+@define-color purple #ae81ff;
+
+/* Main notification window */
+.notification-row {
+  outline: none;
+  margin: 6px 12px;
+  border-radius: 8px;
+}
+
+.notification-row:focus,
+.notification-row:hover {
+  background: @selection;
+}
+
+/* Individual notifications */
+.notification {
+  background: @background;
+  border: 2px solid @red;
+  border-radius: 8px;
+  margin: 6px 12px;
+  box-shadow: 0 0 8px rgba(249, 38, 114, 0.3);
+  padding: 0;
+}
+
+.notification.critical {
+  border: 2px solid @red;
+  box-shadow: 0 0 12px rgba(249, 38, 114, 0.6);
+}
+
+.notification.low {
+  border: 2px solid @comment;
+  box-shadow: 0 0 4px rgba(117, 113, 94, 0.3);
+}
+
+/* Notification content */
+.notification-content {
+  background: transparent;
+  padding: 12px;
+  border-radius: 6px;
+}
+
+.notification-default-action,
+.notification-action {
+  border-radius: 6px;
+  color: @foreground;
+  background: @background;
+  border: 1px solid @selection;
+  margin: 6px;
+}
+
+.notification-default-action:hover,
+.notification-action:hover {
+  background: @selection;
+  border: 1px solid @red;
+}
+
+.notification-default-action:active,
+.notification-action:active {
+  background: @red;
+  color: @background;
+}
+
+/* Close button */
+.close-button {
+  background: @red;
+  color: @background;
+  border-radius: 50%;
+  border: none;
+  margin: 6px;
+  padding: 2px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.close-button:hover {
+  background: @orange;
+}
+
+/* Notification headers */
+.summary {
+  font-size: 14px;
+  font-weight: bold;
+  color: @green;
+  background: transparent;
+  margin: 0 6px 6px 6px;
+}
+
+.time {
+  font-size: 11px;
+  font-weight: normal;
+  color: @comment;
+  background: transparent;
+  margin: 0 6px;
+}
+
+.body {
+  font-size: 12px;
+  font-weight: normal;
+  color: @foreground;
+  background: transparent;
+  margin: 6px;
+}
+
+/* Control Center */
+.control-center {
+  background: @background;
+  border: 2px solid @red;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+.control-center-list {
+  background: transparent;
+}
+
+.control-center-list-placeholder {
+  opacity: 0.5;
+  color: @comment;
+  font-size: 16px;
+  margin: 24px;
+}
+
+/* Widget titles */
+.widget-title {
+  margin: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  color: @cyan;
+}
+
+.widget-title > button {
+  font-size: 12px;
+  color: @foreground;
+  background: @selection;
+  border: 1px solid @comment;
+  border-radius: 6px;
+  padding: 4px 8px;
+}
+
+.widget-title > button:hover {
+  background: @red;
+  border: 1px solid @red;
+  color: @background;
+}
+
+/* DND toggle */
+.widget-dnd {
+  background: @background;
+  color: @foreground;
+  border-radius: 8px;
+  margin: 8px;
+}
+
+.widget-dnd > switch {
+  border-radius: 8px;
+  background: @selection;
+  border: 1px solid @comment;
+}
+
+.widget-dnd > switch:checked {
+  background: @orange;
+}
+
+.widget-dnd > switch slider {
+  background: @foreground;
+  border-radius: 50%;
+}
+
+/* Inhibitors */
+.widget-inhibitors {
+  background: @background;
+  border-radius: 8px;
+  margin: 8px;
+}
+
+.widget-inhibitors > button {
+  font-size: 12px;
+  color: @foreground;
+  background: @selection;
+  border: 1px solid @comment;
+  border-radius: 6px;
+  margin: 4px;
+  padding: 6px;
+}
+
+.widget-inhibitors > button:hover {
+  background: @purple;
+  border: 1px solid @purple;
+}
+
+/* Scrollbar */
+.floating-notifications .notification-row .notification scrolledwindow scrollbar {
+  background: @selection;
+  border-radius: 8px;
+}
+
+.floating-notifications .notification-row .notification scrolledwindow scrollbar slider {
+  background: @red;
+  border-radius: 8px;
+}
+
+/* Notification icons */
+.notification-icon {
+  border-radius: 8px;
+  margin: 6px;
+}
+
+.notification-image {
+  border-radius: 8px;
+  margin: 6px;
+}
+
+/* App icon */
+.app-icon {
+  border-radius: 4px;
+  margin: 6px;
+}

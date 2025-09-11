@@ -1,0 +1,126 @@
+// -*- mode: json -*-
+
+{
+	"layer": "top",
+	"position": "top",
+	"exclusive-zone": true,
+	"autohide": true,
+		
+	"modules-left": [
+	   "hyprland/workspaces",
+		"hyprland/window",
+	],
+	
+	"modules-center": [
+		"clock#1",
+		"clock#2",
+		"clock#3",	
+	],
+	
+	"modules-right": [
+		"custom/weather",
+		"custom/cpu",
+		"custom/memory",
+		"custom/disk",
+		"custom/disk-home",
+		"pulseaudio",
+		"custom/swaync",
+		"tray",		
+		"custom/powermenu"
+	],
+	
+	"hyprland/workspaces": {
+	    "disable-scroll": true,
+	    "format": "{name}",
+	    "all-outputs": false,
+	},
+		
+	"clock#1": {
+		"format": "{:%A}",
+		"tooltip": false
+	},
+	
+	"clock#2": {
+		"format": "{:%B %e, %Y}",
+		"tooltip": false
+	},
+	
+	"clock#3": {
+		"format": "{:%I:%M %p}",		
+		"tooltip": false
+	},
+
+	"pulseaudio": {
+		"format": "{icon} {volume:2}%",
+		"format-bluetooth": "{icon} {volume}%",
+		"format-muted": "MUTE",
+		"format-icons": {
+			"headphones": "",
+			"default": [
+				"",
+				""
+			]
+		},
+		"scroll-step": 5,
+		    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+		        "on-click-right": "pavucontrol",
+		        "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+		        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"	
+	},
+	
+	"custom/disk": {
+	    "exec": "~/scripts/waybar/disk_usage.sh",
+	    "interval": 30,
+	    "format": "{}",
+	    "on-click": "dolphin"
+	},
+
+	"custom/disk-home": {
+	    "exec": "~/scripts/waybar/disk-home.sh",
+	    "interval": 30,
+	    "format": "{}",
+	    "on-click": "dolphin"
+	},
+	
+	"tray": {
+		"icon-size": 16,
+		"spacing": 5,
+        "show-passive-items": false,
+	},
+	
+	"custom/powermenu": {
+		"format": "⏻",
+		"tooltip": "Power Menu",
+		"on-click": "~/scripts/hypr/hyprpowermenu.sh"
+	},
+	
+	"custom/memory": {
+		"exec": "~/scripts/waybar/memory.sh",
+		"interval": 5,
+		"tooltip": false
+	},
+	
+	"custom/cpu": {
+	    "exec": "~/scripts/waybar/cpu_usage_freq.sh",
+	    "interval": 5,
+	    "tooltip": false
+	},
+	
+	"custom/swaync": {
+		"tooltip": false,
+		"format": "󰂚 {}",
+		"exec": "swaync-client -c",
+		"interval": 1,
+		"on-click": "swaync-client -t -sw",
+		"on-click-right": "swaync-client -d -sw"
+    },
+    
+    "custom/weather": {
+		"exec": "~/scripts/waybar/weather.sh",
+		"interval": 900,
+		"format": "{}",
+		"tooltip": true,
+		"return-type": "json",
+		"on-click": "~/scripts/waybar/show-weather.sh"
+	},
+}
